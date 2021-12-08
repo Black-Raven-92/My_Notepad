@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toolbar;
 
 import ua.black_raven.mynotepad.UI.NoteDetailsFragment;
 import ua.black_raven.mynotepad.UI.NoteListFragment;
@@ -50,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {

@@ -2,9 +2,12 @@ package ua.black_raven.mynotepad.UI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,6 +42,22 @@ public class NoteDetailsFragment extends Fragment {
         noteTitle = view.findViewById(R.id.title_detail);
         noteText = view.findViewById(R.id.descript_detail);
         noteDate = view.findViewById(R.id.date_detail);
+        Toolbar toolbar=view.findViewById(R.id.title);
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.add:
+                        Toast.makeText(requireContext(),"Add",Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.dell:
+                        Toast.makeText(requireContext(),"Delete",Toast.LENGTH_SHORT).show();
+                        return true;
+
+                }
+                return false;
+            }
+        });
         if (getArguments() != null && getArguments().containsKey(ARG_NOTE)) {
             displayDetails(getArguments().getParcelable(ARG_NOTE));
         }
